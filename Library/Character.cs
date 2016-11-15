@@ -8,22 +8,22 @@ namespace Library
 {
     class Character
     {
-        Skill Archery = new Skill(1, 10, "Archery");
-        Skill OneHanded = new Skill(1, 10, "OneHanded");
-        Skill TwoHanded = new Skill(1, 10, "TwoHanded");
-        Skill LightArmor = new Skill(1, 10, "LightArmor");
-        Skill HeavyArmor = new Skill(1, 10, "HeavyArmor");
-        Skill Stealth = new Skill(1, 10, "Stealth");
-        Skill Agility = new Skill(1, 10, "Agility");
-        Skill Smighting = new Skill(1, 10, "Smighting");
-        Skill Enchanting = new Skill(1, 10, "Enchanting");
-        Skill Alchemy = new Skill(1, 10, "Alchemy");
-        Skill Blocking = new Skill(1, 10, "Blocking");
-        Skill WildMagic = new Skill(1, 10, "WildMagic");
-        Skill InfernoMagic = new Skill(1, 10, "InfernoMagic");
-        Skill BlizzMagic = new Skill(1, 10, "BlizzMagic");
-        Skill Skymagic = new Skill(1, 10, "Skymagic");
-        Skill PureMagic = new Skill(1, 10, "PureMagic");
+        Skill Archery = new Skill(1, 10, 1.00, "Archery");
+        Skill OneHanded = new Skill(1, 10, 1.00, "OneHanded");
+        Skill TwoHanded = new Skill(1, 10, 1.00, "TwoHanded");
+        Skill LightArmor = new Skill(1, 10, 1.00, "LightArmor");
+        Skill HeavyArmor = new Skill(1, 10, 1.00, "HeavyArmor");
+        Skill Stealth = new Skill(1, 10, 1.00, "Stealth");
+        Skill Agility = new Skill(1, 10, 1.00, "Agility");
+        Skill Smighting = new Skill(1, 10, 1.00, "Smighting");
+        Skill Enchanting = new Skill(1, 10, 1.00, "Enchanting");
+        Skill Alchemy = new Skill(1, 10, 1.00, "Alchemy");
+        Skill Blocking = new Skill(1, 10, 1.00, "Blocking");
+        Skill WildMagic = new Skill(1, 10, 1.00, "WildMagic");
+        Skill InfernoMagic = new Skill(1, 10, 1.00, "InfernoMagic");
+        Skill BlizzMagic = new Skill(1, 10, 1.00, "BlizzMagic");
+        Skill Skymagic = new Skill(1, 10, 1.00, "Skymagic");
+        Skill PureMagic = new Skill(1, 10, 1.00, "PureMagic");
 
         string[] Genders = new string[] { "Male", "Female" };
         List<Skill> skillList = new List<Skill>();
@@ -44,7 +44,6 @@ namespace Library
             FavorPoints = 64;
             skillList.AddRange(skillArray);
         }
-
         public void increseSelection(int choice)
         {
             if (FavorPoints >= 1 && skillList[choice].startup <= 9)
@@ -56,7 +55,6 @@ namespace Library
             {
                 throw new Exception("you are out of Favoring Points or you already have 10 points in this selection, try another one");
             }
-            
         }
         public void decresesSelection(int choice)
         {
@@ -83,7 +81,6 @@ namespace Library
                 throw new Exception("Invalid Gender");
             }
         }
-
         public string parentSelector()
         {
             throw new NotImplementedException();

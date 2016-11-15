@@ -8,6 +8,9 @@ namespace Library
 {
     class Gods
     {
+        public string XpModifier;
+        public string Divine;
+
         List<string> GreekGods = new List<string>()
         {
             "Zeus", "Hades", "Poseidon", "Aphrodite",
@@ -33,5 +36,13 @@ namespace Library
             "Hyperion", "Oceanus", "Prometheus", "Leto"
 
         };
+        public Gods()
+        {
+
+        }
+        public Gods(string _xpModifier, string _divine)
+        {
+
+        }
     }
 }

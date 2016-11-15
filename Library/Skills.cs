@@ -18,12 +18,13 @@ namespace Library
         public string type;
         public int startup;
         public int level;
+        public double xpMultiplier;
 
         public Skill()
         {
 
         }
-        public Skill(int _startup, int _level, string _type)
+        public Skill(int _startup, int _level, double _xpMultiplier , string _type)
         {
             if (_startup <= 10)
             {
@@ -41,6 +42,15 @@ namespace Library
             {
                 throw new Exception("Too High Level");
             }
+            if (_xpMultiplier > 0.50)
+            {
+                xpMultiplier = _xpMultiplier;
+            }
+            else
+            {
+                throw new Exception("can't go below 50% XP gain on a skill");
+            }
+
             if (Skills.Contains(_type))
             {
                 type = _type;
