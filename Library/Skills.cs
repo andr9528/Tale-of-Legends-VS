@@ -8,6 +8,8 @@ namespace Library
 {
     class Skill
     {
+
+
         List<string> Skills = new List<string>()
         {
             "Archery", "OneHanded", "TwoHanded", "LightArmor",
@@ -15,16 +17,17 @@ namespace Library
             "Enchanting", "Alchemy", "Blocking", "WildMagic",
             "InfernoMagic", "BlizzMagic", "Skymagic", "PureMagic"
         };
-        public string type;
-        public int startup;
-        public int level;
-        public double xpMultiplier;
+        public int ID { get; internal set; }
+        public string type { get; internal set; }
+        public int startup { get; internal set; }
+        public int level { get; internal set; }
+        public double xpMultiplier { get; internal set; }
 
         public Skill()
         {
 
         }
-        public Skill(int _startup, int _level, double _xpMultiplier , string _type)
+        public Skill(int _id, int _startup, int _level, double _xpMultiplier , string _type)
         {
             if (_startup <= 10)
             {
@@ -48,7 +51,7 @@ namespace Library
             }
             else
             {
-                throw new Exception("can't go below 50% XP gain on a skill");
+                throw new Exception("Can't go below 50% XP gain on a skill");
             }
 
             if (Skills.Contains(_type))
@@ -57,8 +60,9 @@ namespace Library
             }
             else
             {
-                throw new Exception("Unknown SKill");
+                throw new Exception("Unknown Skill");
             }
+            ID = _id;
         }
     }
 }
