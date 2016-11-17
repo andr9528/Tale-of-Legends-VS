@@ -10,29 +10,29 @@ namespace Library
     {
         // Greek Gods
         Gods Zeus = new Gods("1, 8, 3, 8, 1, 4, 7, 6, 8, 3, 8, 5, 1, 1, 10, 6",
-                             "Zeus", 1);
+                             "Zeus", 0);
         Gods Hades = new Gods("7, 6, 4, 2, 8, 10, 5, 5, 5, 7, 3, 4, 10, 1, 1, 6",
-                              "Hades", 2);
+                              "Hades", 1);
         Gods Poseidon = new Gods("1, 4, 8, 6, 9, 2, 3, 2, 8, 7, 7, 6, 2, 10, 3, 7", // <- working on this one - calculate favoring
-                                 "Poseidon", 3);
+                                 "Poseidon", 2);
         Gods Aphrodite = new Gods("1, 8, 3, 8, 1, 4, 7, 6, 8, 3, 8, 5, 1, 1, 10, 6",
-                                  "Aphrodite", 4);
+                                  "Aphrodite", 3);
         Gods Hephaestus = new Gods("1, 8, 3, 8, 1, 4, 7, 6, 8, 3, 8, 5, 1, 1, 10, 6",
-                                   "Hephaestus", 5);
+                                   "Hephaestus", 4);
         Gods Hera = new Gods("1, 8, 3, 8, 1, 4, 7, 6, 8, 3, 8, 5, 1, 1, 10, 6",
-                             "Hera", 6);
+                             "Hera", 5);
         Gods Athena = new Gods("1, 8, 3, 8, 1, 4, 7, 6, 8, 3, 8, 5, 1, 1, 10, 6",
-                               "Athena", 7);
+                               "Athena", 6);
         Gods Ares = new Gods("1, 8, 3, 8, 1, 4, 7, 6, 8, 3, 8, 5, 1, 1, 10, 6",
-                             "Ares", 8);
+                             "Ares", 7);
         Gods Hermes = new Gods("1, 8, 3, 8, 1, 4, 7, 6, 8, 3, 8, 5, 1, 1, 10, 6",
-                               "Hermes", 9);
+                               "Hermes", 8);
         Gods Artemis = new Gods("1, 8, 3, 8, 1, 4, 7, 6, 8, 3, 8, 5, 1, 1, 10, 6",
-                                "Artemis", 10);
+                                "Artemis", 9);
         Gods Apollo = new Gods("1, 8, 3, 8, 1, 4, 7, 6, 8, 3, 8, 5, 1, 1, 10, 6",
-                               "Apollo", 11);
+                               "Apollo", 10);
         Gods Dionysus = new Gods("1, 8, 3, 8, 1, 4, 7, 6, 8, 3, 8, 5, 1, 1, 10, 6",
-                                 "Dionysus", 12);
+                                 "Dionysus", 11);
         // Egyptian Gods
 
         // Nordic Gods

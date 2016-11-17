@@ -8,22 +8,22 @@ namespace Library
 {
     class Character
     {
-        Skill Archery = new Skill(1, 1, 10, 1.00, "Archery");
-        Skill OneHanded = new Skill(2, 1, 10, 1.00, "OneHanded");
-        Skill TwoHanded = new Skill(3, 1, 10, 1.00, "TwoHanded");
-        Skill LightArmor = new Skill(4, 1, 10, 1.00, "LightArmor");
-        Skill HeavyArmor = new Skill(5, 1, 10, 1.00, "HeavyArmor");
-        Skill Stealth = new Skill(6, 1, 10, 1.00, "Stealth");
-        Skill Agility = new Skill(7, 1, 10, 1.00, "Agility");
-        Skill Smighting = new Skill(8, 1, 10, 1.00, "Smighting");
-        Skill Enchanting = new Skill(9, 1, 10, 1.00, "Enchanting");
-        Skill Alchemy = new Skill(10, 1, 10, 1.00, "Alchemy");
-        Skill Blocking = new Skill(11, 1, 10, 1.00, "Blocking");
-        Skill WildMagic = new Skill(12, 1, 10, 1.00, "WildMagic");
-        Skill InfernoMagic = new Skill(13, 1, 10, 1.00, "InfernoMagic");
-        Skill BlizzMagic = new Skill(14, 1, 10, 1.00, "BlizzMagic");
-        Skill Skymagic = new Skill(15, 1, 10, 1.00, "Skymagic");
-        Skill PureMagic = new Skill(16, 1, 10, 1.00, "PureMagic");
+        Skill Archery = new Skill(0, 1, 10, 1.00, "Archery");
+        Skill OneHanded = new Skill(1, 1, 10, 1.00, "OneHanded");
+        Skill TwoHanded = new Skill(2, 1, 10, 1.00, "TwoHanded");
+        Skill LightArmor = new Skill(3, 1, 10, 1.00, "LightArmor");
+        Skill HeavyArmor = new Skill(4, 1, 10, 1.00, "HeavyArmor");
+        Skill Stealth = new Skill(5, 1, 10, 1.00, "Stealth");
+        Skill Agility = new Skill(6, 1, 10, 1.00, "Agility");
+        Skill Smighting = new Skill(7, 1, 10, 1.00, "Smighting");
+        Skill Enchanting = new Skill(8, 1, 10, 1.00, "Enchanting");
+        Skill Alchemy = new Skill(9, 1, 10, 1.00, "Alchemy");
+        Skill Blocking = new Skill(10, 1, 10, 1.00, "Blocking");
+        Skill WildMagic = new Skill(11, 1, 10, 1.00, "WildMagic");
+        Skill InfernoMagic = new Skill(12, 1, 10, 1.00, "InfernoMagic");
+        Skill BlizzMagic = new Skill(13, 1, 10, 1.00, "BlizzMagic");
+        Skill Skymagic = new Skill(14, 1, 10, 1.00, "Skymagic");
+        Skill PureMagic = new Skill(15, 1, 10, 1.00, "PureMagic");
 
         string[] Genders = new string[] { "Male", "Female" };
         List<Skill> skillList = new List<Skill>();
