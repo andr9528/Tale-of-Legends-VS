@@ -27,11 +27,15 @@ namespace Library
 
         string[] Genders = new string[] { "Male", "Female" };
         List<Skill> skillList = new List<Skill>();
+        List<int> startupClosenessHits = new List<int>();
 
         public int FavorPoints { get; internal set; }
         public string Name { get; internal set; }
         public string Gender { get; internal set; }
         public string GodParent { get; internal set; }
+        public int DesiredMythology { get; internal set; }
+        public Gods Gods { get; set; }
+        public Skill Skill { get; set; }
 
         public void setup()
         {
@@ -71,8 +75,10 @@ namespace Library
                 throw new Exception("you haven't invested any Favoring Points or you are trying to go below one which is not allow, try another one");
             }
         }
-        public void basicCharacterCreation(string name, string gender)
+        public void basicCharacterCreation(string name, string gender, int desiredMythology)
         {
+            setup();
+
             Name = name;
 
             if (Genders.Contains(gender))
@@ -83,10 +89,42 @@ namespace Library
             {
                 throw new Exception("Invalid Gender");
             }
+
+            if (desiredMythology <= 4 && desiredMythology >= 1)
+            {
+                DesiredMythology = desiredMythology;
+            }
+            else
+            {
+                throw new Exception("Invalid Desired Mythology");
+            }
+
+            while (FavorPoints != 0)
+            {
+                // run a method that runes either increase or decrease depeding on some logic
+            }
         }
         public string parentSelector()
         {
             throw new NotImplementedException();
+        }
+
+        public bool checkIfClose(Skill skill, Gods divine)
+        {
+            if (skill.startup <= int.Parse(divine.Favoring.Split(',')[skill.ID])-1 
+                && skill.startup >= int.Parse(divine.Favoring.Split(',')[skill.ID]) + 1)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public void CountCloseness()
+        {
+
         }
 
         public string ToStringParent()
