@@ -6,78 +6,56 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class Character
+    public class Character
     {
-        Skill Archery = new Skill(0, 1, 10, 1.00, "Archery");
-        Skill OneHanded = new Skill(1, 1, 10, 1.00, "OneHanded");
-        Skill TwoHanded = new Skill(2, 1, 10, 1.00, "TwoHanded");
-        Skill LightArmor = new Skill(3, 1, 10, 1.00, "LightArmor");
-        Skill HeavyArmor = new Skill(4, 1, 10, 1.00, "HeavyArmor");
-        Skill Stealth = new Skill(5, 1, 10, 1.00, "Stealth");
-        Skill Agility = new Skill(6, 1, 10, 1.00, "Agility");
-        Skill Smighting = new Skill(7, 1, 10, 1.00, "Smighting");
-        Skill Enchanting = new Skill(8, 1, 10, 1.00, "Enchanting");
-        Skill Alchemy = new Skill(9, 1, 10, 1.00, "Alchemy");
-        Skill Blocking = new Skill(10, 1, 10, 1.00, "Blocking");
-        Skill WildMagic = new Skill(11, 1, 10, 1.00, "WildMagic");
-        Skill InfernoMagic = new Skill(12, 1, 10, 1.00, "InfernoMagic");
-        Skill BlizzMagic = new Skill(13, 1, 10, 1.00, "BlizzMagic");
-        Skill Skymagic = new Skill(14, 1, 10, 1.00, "Skymagic");
-        Skill PureMagic = new Skill(15, 1, 10, 1.00, "PureMagic");
 
         string[] Genders = new string[] { "Male", "Female" };
-        List<Skill> skillList = new List<Skill>();
-        List<int> startupClosenessHits = new List<int>();
+        List<int> ClosenessHits = new List<int>();
+        List<int> Favoring = new List<int>();
 
         public int FavorPoints { get; internal set; }
         public string Name { get; internal set; }
         public string Gender { get; internal set; }
         public string GodParent { get; internal set; }
         public int DesiredMythology { get; internal set; }
-        public Gods Gods { get; set; }
-        public Skill Skill { get; set; }
+        
 
-        public void setup()
-        {
-            Skill[] skillArray = new Skill[] 
-            {
-                Archery, OneHanded, TwoHanded, LightArmor,
-                HeavyArmor, Stealth, Agility, Smighting, 
-                Enchanting, Alchemy, Blocking, WildMagic,
-                InfernoMagic, BlizzMagic, Skymagic, PureMagic
-            };
 
-            FavorPoints = 64;
-            skillList.AddRange(skillArray);
-            
-        }
-        public void increseSelection(int choice)
+        public void incSelection(int choice)
         {
-            if (FavorPoints >= 1 && skillList[choice].startup <= 9)
+            if (FavorPoints >= 1 && Favoring[choice] <= 9)
             {
-                skillList[choice-1].startup++;
+                Favoring[choice]++;
                 FavorPoints--;
             }
             else
             {
-                throw new Exception("you are out of Favoring Points or you already have 10 points in this selection, try another one");
+                throw new Exception("You are out of Favoring Points or you already have 10 points in this selection, try another one");
             }
         }
-        public void decresesSelection(int choice)
+        public void decSelection(int choice)
         {
-            if (FavorPoints < 64 || skillList[choice].startup > 1)
+            if (FavorPoints < 64 || Favoring[choice] != 1)
             {
-                skillList[choice].startup--;
+                Favoring[choice]--;
                 FavorPoints++;
             }
             else
             {
-                throw new Exception("you haven't invested any Favoring Points or you are trying to go below one which is not allow, try another one");
+                throw new Exception("You haven't invested any Favoring Points or you are trying to go below one which is not allow, try another one");
             }
         }
-        public void basicCharacterCreation(string name, string gender, int desiredMythology)
+        public Character()
         {
-            setup();
+            Storage store = new Storage();
+
+            store.setup();
+        }
+        public Character(string name, string gender, int desiredMythology)
+        {
+            Storage store = new Storage();
+
+            store.setup();
 
             Name = name;
 
@@ -98,10 +76,10 @@ namespace Library
             {
                 throw new Exception("Invalid Desired Mythology");
             }
-
-            while (FavorPoints != 0)
+            FavorPoints = 64;
+            for (int i = 0; i < store.SkillList.Count(); i++)
             {
-                // run a method that runes either increase or decrease depeding on some logic
+                Favoring.Add(1);
             }
         }
         public string parentSelector()
@@ -111,8 +89,8 @@ namespace Library
 
         public bool checkIfClose(Skill skill, Gods divine)
         {
-            if (skill.startup <= int.Parse(divine.Favoring.Split(',')[skill.ID])-1 
-                && skill.startup >= int.Parse(divine.Favoring.Split(',')[skill.ID]) + 1)
+            if (skill.startup >= int.Parse(divine.Favoring.Split(',')[skill.ID])-1 
+                && skill.startup <= int.Parse(divine.Favoring.Split(',')[skill.ID]) + 1)
             {
                 return true;
             }
@@ -124,7 +102,77 @@ namespace Library
 
         public void CountCloseness()
         {
+            Storage store = new Storage();
+            if (FavorPoints != 0)
+            {
+                ClosenessHits.Clear();
+                int count = 0;
 
+                if (DesiredMythology == 1)
+                {
+                    foreach (Gods divine in store.GreekGods)
+                    {
+                        foreach (Skill skill in store.SkillList)
+                        {
+                            if (checkIfClose(skill, divine) == true)
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                    ClosenessHits.Add(count);
+                }
+                else if (DesiredMythology == 2)
+                {
+                    foreach (Gods divine in store.EgyptianGods)
+                    {
+                        foreach (Skill skill in store.SkillList)
+                        {
+                            if (checkIfClose(skill, divine) == true)
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                    ClosenessHits.Add(count);
+                }
+                else if (DesiredMythology == 3)
+                {
+                    foreach (Gods divine in store.NordicGods)
+                    {
+                        foreach (Skill skill in store.SkillList)
+                        {
+                            if (checkIfClose(skill, divine) == true)
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                    ClosenessHits.Add(count);
+                }
+                else if (DesiredMythology == 4)
+                {
+                    foreach (Gods divine in store.AtlanticTitans)
+                    {
+                        foreach (Skill skill in store.SkillList)
+                        {
+                            if (checkIfClose(skill, divine) == true)
+                            {
+                                count++;
+                            }
+                        }
+                    }
+                    ClosenessHits.Add(count);
+                }
+                else
+                {
+                    throw new Exception("How did you get to this point?");
+                }
+            }
+            else
+            {
+                throw new Exception("You have left over points to invest");
+            }
         }
 
         public string ToStringParent()

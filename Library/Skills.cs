@@ -6,17 +6,9 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class Skill
+    public class Skill
     {
 
-
-        List<string> Skills = new List<string>()
-        {
-            "Archery", "OneHanded", "TwoHanded", "LightArmor",
-            "HeavyArmor", "Stealth", "Agility", "Smighting",
-            "Enchanting", "Alchemy", "Blocking", "WildMagic",
-            "InfernoMagic", "BlizzMagic", "Skymagic", "PureMagic"
-        };
         public int ID { get; internal set; }
         public string type { get; internal set; }
         public int startup { get; internal set; }
@@ -29,6 +21,8 @@ namespace Library
         }
         public Skill(int _id, int _startup, int _level, double _xpMultiplier , string _type)
         {
+            Storage store = new Storage();
+
             if (_startup <= 10)
             {
                 startup = _startup;
@@ -54,7 +48,7 @@ namespace Library
                 throw new Exception("Can't go below 50% XP gain on a skill");
             }
 
-            if (Skills.Contains(_type))
+            if (store.SkillsS.Contains(_type))
             {
                 type = _type;
             }
