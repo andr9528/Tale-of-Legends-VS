@@ -8,7 +8,7 @@ namespace Library
 {
     public class Character
     {
-
+        Storage store = new Storage();
         string[] Genders = new string[] { "Male", "Female" };
         List<int> ClosenessHits = new List<int>();
         List<int> Favoring = new List<int>();
@@ -47,14 +47,10 @@ namespace Library
         }
         public Character()
         {
-            Storage store = new Storage();
-
             store.setup();
         }
         public Character(string name, string gender, int desiredMythology)
         {
-            Storage store = new Storage();
-
             store.setup();
 
             Name = name;
@@ -102,7 +98,6 @@ namespace Library
 
         public void CountCloseness()
         {
-            Storage store = new Storage();
             if (FavorPoints != 0)
             {
                 ClosenessHits.Clear();
@@ -178,6 +173,43 @@ namespace Library
         public string ToStringParent()
         {
             return "Your parent is" + GodParent ;
+        }
+        public int calcFavoring(int godID)
+        {
+            int output = 0;
+
+            foreach (Gods divine in SearchAndRetriveG(godID))
+            {
+                for (int i = 0; i < divine.Favoring.Split(',').Count(); i++)
+                {
+                    output = output + int.Parse(divine.Favoring.Split(',')[i]);
+                }
+            }
+            return output;
+        }
+        public List<Gods> SearchAndRetriveG(int searchTerm)
+        {
+            List<Gods> output = new List<Gods>();
+            List<Gods> searchList = new List<Gods>();
+
+            searchList.AddRange(store.GreekGods);
+            searchList.AddRange(store.EgyptianGods);
+            searchList.AddRange(store.NordicGods);
+            searchList.AddRange(store.AtlanticTitans);
+
+
+            foreach (Gods divine in searchList)
+            {
+                if (divine.GodID == searchTerm)
+                {
+                    output.Add(divine);
+                }
+            }
+            if (output.Count == 0)
+            {
+                throw new Exception("Search term did not match anything");
+            }
+            return output;
         }
     }
 }

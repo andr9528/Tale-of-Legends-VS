@@ -18,9 +18,8 @@ namespace Simplified_UI
         public void run()
         {
             Character player = new Character();
-            Gods divine = new Gods();
 
-            Console.WriteLine(divine.calcFavoring(int.Parse(Console.ReadLine())));
+            Console.WriteLine(player.calcFavoring(int.Parse(Console.ReadLine())));
             Console.WriteLine();
         }
     }

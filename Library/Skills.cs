@@ -8,7 +8,6 @@ namespace Library
 {
     public class Skill
     {
-
         public int ID { get; internal set; }
         public string type { get; internal set; }
         public int startup { get; internal set; }
