@@ -8,22 +8,17 @@ namespace Library
 {
     public class Gods
     {
-        Storage store = new Storage();
+        List<double> XpModifier = new List<double>();
         private string favoring;
+        private string divine;
+        private int godID;
 
-        List<double> XpModifier = new List<double>(); 
-        public string Favoring
-        {
-            get { return favoring; }
-            internal set
-            {
-                favoring = value;
-            }
-        }
-        public string Divine { get; internal set; }
-        public int GodID { get; internal set; }
+        public string Favoring { get { return favoring; } internal set { favoring = value; } }
+        public string Divine { get { return divine; } internal set { divine = value; } }
+        public int GodID { get { return godID; } internal set { godID = value; } }
+        public Storage store { get; }
 
-        
+
         public Gods()
         {
 

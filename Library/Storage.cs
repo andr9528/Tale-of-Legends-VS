@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Library
 {
-    class Storage
+    public class Storage
     {
         // Gods
         // Greek Gods

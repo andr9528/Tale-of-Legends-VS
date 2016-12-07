@@ -8,7 +8,7 @@ namespace Library
 {
     public class Character
     {
-        Storage store = new Storage();
+        public Storage store = new Storage();
         string[] Genders = new string[] { "Male", "Female" };
         List<int> ClosenessHits = new List<int>();
         List<int> Favoring = new List<int>();
@@ -211,5 +211,6 @@ namespace Library
             }
             return output;
         }
+
     }
 }
