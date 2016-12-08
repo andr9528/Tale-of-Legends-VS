@@ -26,10 +26,10 @@ namespace Library
         public Gods(string _favoring, string _divine, int _godID)
         {
             Favoring = _favoring;
-            if (store.GreekGodsS.Contains(_divine)
-                || store.EgyptianGodsS.Contains(_divine)
-                || store.NordicGodsS.Contains(_divine)
-                || store.AtlanticTitansS.Contains(_divine))
+            if (store.GodGreekString.Contains(_divine)
+                || store.GodEgyptianString.Contains(_divine)
+                || store.GodNordicString.Contains(_divine)
+                || store.GodAtlanticString.Contains(_divine))
             {
                 Divine = _divine;
             }

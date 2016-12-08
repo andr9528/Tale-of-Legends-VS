@@ -45,80 +45,20 @@ namespace Library
         List<Gods> nordicGods = new List<Gods>();
         List<Gods> atlanticTitans = new List<Gods>();
 
-        List<string> greekGodsS = new List<string>()
-        {
-            "Zeus", "Hades", "Poseidon", "Aphrodite",
-            "Hephaestus", "Hera", "Athena", "Ares",
-            "Hermes", "Artemis", "Apollo", "Dionysus"
-        };
-        List<string> egyptianGodsS = new List<string>()
-        {
-            "Ra", "Isis", "Set", "Horus",
-            "Osiris", "Anubis", "Bast", "Ptah",
-            "Hathor", "Thoth", "Sekhmet", "Nephthys"
-        };
-        List<string> nordicGodsS = new List<string>()
-        {
-            "Thor", "Odin", "Loki", "Forseti",
-            "Freyja", "Hel", "Baldr", "Tyr",
-            "Heimdall", "Skadi", "Bragi", "Njord"
-        };
-        List<string> atlanticTitansS = new List<string>()
-        {
-            "Kronos", "Oranos", "Gaia", "Hekate",
-            "Atlas", "Helios", "Theia", "Rheia",
-            "Hyperion", "Oceanus", "Prometheus", "Leto"
+        List<string> godGreekString = new List<string>();
+        List<string> godEgyptianString = new List<string>();
+        List<string> godNordicString = new List<string>();
+        List<string> godAtlanticString = new List<string>();
 
-        };
+        public List<string> GodGreekString { get { return godGreekString; } }
+        public List<string> GodEgyptianString { get { return godEgyptianString; } }
+        public List<string> GodNordicString { get { return godNordicString; } }
+        public List<string> GodAtlanticString { get { return godAtlanticString; } }
+        public List<Gods> GreekGods { get { return greekGods; } }
+        public List<Gods> EgyptianGods { get { return egyptianGods; } }
+        public List<Gods> NordicGods { get { return nordicGods; } }
+        public List<Gods> AtlanticTitans { get { return atlanticTitans; } }
 
-        public List<string> GreekGodsS { get { return greekGodsS; } }
-        public List<string> EgyptianGodsS { get { return egyptianGodsS; } }
-        public List<string> NordicGodsS { get { return nordicGodsS; } }
-        public List<string> AtlanticTitansS { get { return atlanticTitansS; } }
-        public List<Gods> GreekGods
-        {
-            get { return greekGods; }
-            set
-            {
-                foreach (Gods divine in value)
-                {
-                    greekGods.Add(divine);
-                }
-            }
-        }
-        public List<Gods> EgyptianGods
-        {
-            get { return egyptianGods; }
-            set
-            {
-                foreach (Gods divine in value)
-                {
-                    egyptianGods.Add(divine);
-                }
-            }
-        }
-        public List<Gods> NordicGods
-        {
-            get { return nordicGods; }
-            set
-            {
-                foreach (Gods divine in value)
-                {
-                    nordicGods.Add(divine);
-                }
-            }
-        }
-        public List<Gods> AtlanticTitans
-        {
-            get { return atlanticTitans; }
-            set
-            {
-                foreach (Gods divine in value)
-                {
-                    atlanticTitans.Add(divine);
-                }
-            }
-        }
 
         // Skills
         Skill Archery = new Skill(0, 1, 10, 1.00, "Archery");
@@ -139,32 +79,14 @@ namespace Library
         Skill PureMagic = new Skill(15, 1, 10, 1.00, "PureMagic");
 
         List<Skill> skillList = new List<Skill>();
-
-        List<string> skillsS = new List<string>()
-        {
-            "Archery", "OneHanded", "TwoHanded", "LightArmor",
-            "HeavyArmor", "Stealth", "Agility", "Smighting",
-            "Enchanting", "Alchemy", "Blocking", "WildMagic",
-            "InfernoMagic", "BlizzMagic", "Skymagic", "PureMagic"
-        };
-
-        public List<string> SkillsS { get { return skillsS; } }
-
-        public List<Skill> SkillList
-        {
-            get { return skillList; }
-            set
-            {
-                foreach (Skill skill in value)
-                {
-                    skillList.Add(skill);
-                }
-            }
-        }
+        List<string> skillString = new List<string>();
+        public List<string> SkillString { get { return skillString; } }
+        public List<Skill> SkillList { get { return skillList; } }
+        
         // Functions
         public void setup()
         {
-            List<Skill> skills = new List<Skill>()
+            List<Skill> skillSkillSetup = new List<Skill>()
            {
                 Archery, OneHanded, TwoHanded, LightArmor,
                 HeavyArmor, Stealth, Agility, Smighting,
@@ -172,39 +94,76 @@ namespace Library
                 InfernoMagic, BlizzMagic, Skymagic, PureMagic
            };
 
-            List<Gods> greekGods = new List<Gods>()
+            List<Gods> godsGreekSetup = new List<Gods>()
             {
                 Zeus, Hades, Poseidon, Aphrodite,
                 Hephaestus, Hera, Athena, Ares,
                 Hermes, Artemis, Apollo, Dionysus
             };
 
-            //List<Gods> egyptianGods = new List<Gods>();
+            //List<Gods> egyptianGodsSetup = new List<Gods>();
             //{
             //    Ra, Isis, Set, Horus,
             //    Osiris, Anubis, Bast, Ptah,
             //    Hathor, Thoth, Sekhmet, Nephthys
             //};
 
-            // List<Gods> nordicGods = new List<Gods>();
+            // List<Gods> nordicGodsSetup = new List<Gods>();
             //{
             //    Thor, Odin, Loki, Forseti,
             //    Freyja, Hel, Baldr, Tyr,
             //    Heimdall, Skadi, Bragi, Njord
             //};
 
-            //List<Gods> atlanticTitans = new List<Gods>();
+            //List<Gods> atlanticTitansSetup = new List<Gods>();
             //{
             //    Kronos, Oranos, Gaia, Hekate,
             //    Atlas, Helios, Theia, Rheia,
             //    Hyperion, Oceanus, Prometheus, Leto
             //};
 
-            SkillList = skills;
-            GreekGods = greekGods;
-            //EgyptianGods = egyptianGods
-            //NordicGods = nordicGods
-            //AtlanticTitans = atlanticTitans
+            List<string> stringSkillSetup = new List<string>()
+        {
+            "Archery", "OneHanded", "TwoHanded", "LightArmor",
+            "HeavyArmor", "Stealth", "Agility", "Smighting",
+            "Enchanting", "Alchemy", "Blocking", "WildMagic",
+            "InfernoMagic", "BlizzMagic", "Skymagic", "PureMagic"
+        };
+            List<string> godGreekStringSetup = new List<string>()
+        {
+            "Zeus", "Hades", "Poseidon", "Aphrodite",
+            "Hephaestus", "Hera", "Athena", "Ares",
+            "Hermes", "Artemis", "Apollo", "Dionysus"
+        };
+            List<string> godEgyptianStringSetup = new List<string>()
+        {
+            "Ra", "Isis", "Set", "Horus",
+            "Osiris", "Anubis", "Bast", "Ptah",
+            "Hathor", "Thoth", "Sekhmet", "Nephthys"
+        };
+            List<string> godNordicStringSetup = new List<string>()
+        {
+            "Thor", "Odin", "Loki", "Forseti",
+            "Freyja", "Hel", "Baldr", "Tyr",
+            "Heimdall", "Skadi", "Bragi", "Njord"
+        };
+            List<string> godAtlanticStringSetup = new List<string>()
+        {
+            "Kronos", "Oranos", "Gaia", "Hekate",
+            "Atlas", "Helios", "Theia", "Rheia",
+            "Hyperion", "Oceanus", "Prometheus", "Leto"
+        };
+
+            godGreekString = godGreekStringSetup;
+            godEgyptianString = godEgyptianStringSetup;
+            godNordicString = godNordicStringSetup;
+            godAtlanticString = godAtlanticStringSetup;
+            greekGods = godsGreekSetup;
+            //EgyptianGods = egyptianGodsSetup
+            //NordicGods = nordicGodsSetup
+            //AtlanticTitans = atlanticTitansSetup
+            skillString = stringSkillSetup;
+            skillList = skillSkillSetup;
         }
 
     }

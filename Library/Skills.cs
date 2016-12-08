@@ -47,7 +47,7 @@ namespace Library
                 throw new Exception("Can't go below 50% XP gain on a skill");
             }
 
-            if (store.SkillsS.Contains(_type))
+            if (store.SkillString.Contains(_type))
             {
                 type = _type;
             }
